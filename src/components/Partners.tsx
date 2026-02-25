@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CORNER_IMAGE =
@@ -93,6 +93,15 @@ const partnerCategories = [
 
 const Partners = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [canHover, setCanHover] = useState(true);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover)");
+    setCanHover(mq.matches);
+    const handler = () => setCanHover(mq.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const currentCategory =
     activeCategory &&
@@ -169,7 +178,7 @@ const Partners = () => {
                 className={`border p-4 md:p-8 text-center transition-all duration-300 cursor-pointer group overflow-hidden min-w-0 ${
                   isActive
                     ? "bg-background border-background/40"
-                    : isDimmed
+                    : isDimmed && canHover
                     ? "opacity-0 pointer-events-none"
                     : "border-background/15 hover:bg-background hover:border-background/30"
                 }`}
