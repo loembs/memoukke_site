@@ -1,99 +1,28 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CORNER_IMAGE =
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
 
-const partnerCategories = [
-  {
-    name: "Communication",
-    partners: [
-      { name: "Partenaire communication 1",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire communication 2",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire communication 3",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-    ],
-  },
-  {
-    name: "Politique",
-    partners: [
-      { name: "Partenaire politique 1",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire politique 2",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire politique 3",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-    ],
-  },
-  {
-    name: "Économie",
-    partners: [
-      { name: "Partenaire économie 1",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire économie 2",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire économie 3",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-    ],
-  },
-  {
-    name: "Finances",
-    partners: [
-      { name: "Partenaire finances 1",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire finances 2",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire finances 3",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-    ],
-  },
-  {
-    name: "Éducation",
-    partners: [
-      { name: "Partenaire éducation 1",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire éducation 2",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire éducation 3",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-    ],
-  },
-  {
-    name: "Gestion de crise",
-    partners: [
-      { name: "Partenaire gestion de crise 1",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire gestion de crise 2",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-      { name: "Partenaire gestion de crise 3",
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png"
-       },
-    ],
-  },
-];
+const PARTNER_IMAGE =
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
 
 const Partners = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const { t } = useLanguage();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [canHover, setCanHover] = useState(true);
+
+  const categories = t.partners.categories;
+  const partnerNamesByIndex = t.partners.partnerNamesByIndex;
+
+  const partnerCategories = categories.map((name, index) => ({
+    name,
+    partners: partnerNamesByIndex[index].map((partnerName) => ({
+      name: partnerName,
+      image: PARTNER_IMAGE,
+    })),
+  }));
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover)");
@@ -104,8 +33,7 @@ const Partners = () => {
   }, []);
 
   const currentCategory =
-    activeCategory &&
-    partnerCategories.find((category) => category.name === activeCategory);
+    activeIndex !== null ? partnerCategories[activeIndex] : null;
 
   return (
     <section className="relative py-24 md:py-32 bg-foreground text-background overflow-hidden">
@@ -141,39 +69,37 @@ const Partners = () => {
         >
           <div className="h-px w-12 bg-background/30 mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            Notre réseau de partenaires
+            {t.partners.title}
           </h2>
           <p className="text-background/60 max-w-xl mx-auto">
-            Un écosystème de collaborateurs experts, présents dans plusieurs pays africains, mobilisable en fonction de vos besoins.
+            {t.partners.subtitle}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {partnerCategories.map((category, index) => {
-            const isActive = activeCategory === category.name;
-            const isDimmed = activeCategory !== null && !isActive;
+            const isActive = activeIndex === index;
+            const isDimmed = activeIndex !== null && activeIndex !== index;
 
             return (
               <motion.div
-                key={category.name}
+                key={`${category.name}-${index}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onMouseEnter={() => {
                   if (window.matchMedia("(hover: hover)").matches) {
-                    setActiveCategory(category.name);
+                    setActiveIndex(index);
                   }
                 }}
                 onMouseLeave={() => {
                   if (window.matchMedia("(hover: hover)").matches) {
-                    setActiveCategory(null);
+                    setActiveIndex(null);
                   }
                 }}
                 onClick={() =>
-                  setActiveCategory((prev) =>
-                    prev === category.name ? null : category.name
-                  )
+                  setActiveIndex((prev) => (prev === index ? null : index))
                 }
                 className={`border p-4 md:p-8 text-center transition-all duration-300 cursor-pointer group overflow-hidden min-w-0 ${
                   isActive
@@ -203,7 +129,7 @@ const Partners = () => {
           <AnimatePresence mode="wait">
             {currentCategory && (
               <motion.div
-                key={currentCategory.name}
+                key={`${currentCategory.name}-${activeIndex}`}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
@@ -237,7 +163,7 @@ const Partners = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center text-background/50 text-sm mt-12 max-w-lg mx-auto leading-relaxed"
         >
-          Composé de partenaires de confiance, cet écosystème offre une grande agilité dans la conception de stratégies sur-mesure.
+          {t.partners.footer}
         </motion.p>
       </div>
     </section>

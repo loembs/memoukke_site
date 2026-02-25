@@ -1,23 +1,12 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CORNER_IMAGE =
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
 
 const Values = () => {
-  const values = [
-    {
-      title: "Confidentialité",
-      description: "Garantir à chaque instant les meilleures conditions de discrétion et de confiance.",
-    },
-    {
-      title: "Agilité",
-      description: "Des stratégies sur-mesure adaptées à chaque contexte et chaque ambition.",
-    },
-    {
-      title: "Excellence",
-      description: "Une capacité de projection opérationnelle à plusieurs dimensions pour une efficacité maximale.",
-    },
-  ];
+  const { t } = useLanguage();
+  const values = t.values.items;
 
   return (
     <section className="relative py-24 md:py-32 bg-background overflow-hidden">
@@ -51,7 +40,7 @@ const Values = () => {
         >
           <div className="h-px w-12 bg-foreground mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-            Nos valeurs
+            {t.values.title}
           </h2>
         </motion.div>
 

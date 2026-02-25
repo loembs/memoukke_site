@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import heroOffice from "@/assets/hero-office.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -21,7 +23,7 @@ const Hero = () => {
           <div className="mb-8">
             <div className="h-px w-20 bg-background/40 mx-auto mb-8" />
             <p className="text-xs tracking-[0.4em] uppercase text-background/70 font-medium">
-              Conseil en Communication & Affaires Publiques
+              {t.hero.tagline}
             </p>
             <div className="h-px w-20 bg-background/40 mx-auto mt-8" />
           </div>
@@ -46,7 +48,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-base md:text-lg text-background/70 max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          Accompagnement stratégique et opérationnel pour dirigeants engagés en France et en Afrique
+          {t.hero.subtitle}
         </motion.p>
 
         <motion.div
@@ -62,7 +64,7 @@ const Hero = () => {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            Nos Services
+            {t.hero.ctaServices}
           </motion.a>
           <motion.a
             href="#contact"
@@ -71,7 +73,7 @@ const Hero = () => {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            Nous Contacter
+            {t.hero.ctaContact}
           </motion.a>
         </motion.div>
       </div>

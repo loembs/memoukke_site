@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CORNER_IMAGE =
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer id="contact" className="relative py-20 bg-muted border-t border-border overflow-hidden">
       <div
@@ -37,10 +39,10 @@ const Footer = () => {
         >
           <div className="h-px w-12 bg-foreground mx-auto mb-6" />
           <h2 className="text-3xl font-display font-bold text-foreground mb-4">
-            Prenons contact
+            {t.footer.title}
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Discutons de vos ambitions et de la manière dont nous pouvons vous accompagner.
+            {t.footer.subtitle}
           </p>
         </motion.div>
 
@@ -60,7 +62,7 @@ const Footer = () => {
             transition={{ duration: 0.2 }}
           >
             <MapPin className="w-5 h-5" strokeWidth={1.5} />
-            <span className="text-sm">Paris, France — Afrique</span>
+            <span className="text-sm">{t.footer.location}</span>
           </motion.div>
         </div>
 
@@ -78,7 +80,7 @@ const Footer = () => {
             />
           </motion.a>
           <p className="text-xs text-muted-foreground tracking-wide">
-            © {new Date().getFullYear()} MEMOUKKE AS CONSEIL. Tous droits réservés.
+            © {new Date().getFullYear()} MEMOUKKE AS CONSEIL. {t.footer.copyright}
           </p>
         </div>
       </div>

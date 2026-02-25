@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ABOUT_IMAGE =
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1772016380/IMG_2808_vl1y2s.jpg";
 
 const About = () => {
+  const { t } = useLanguage();
   return (
     <section id="about" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -26,7 +28,7 @@ const About = () => {
             <div className="aspect-[4/5] overflow-hidden">
               <motion.img
                 src={ABOUT_IMAGE}
-                alt="Équipe de consultants en réunion stratégique"
+                alt={t.about.alt}
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
@@ -50,19 +52,14 @@ const About = () => {
           >
             <div className="h-px w-12 bg-foreground mb-6" />
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
-              Une expertise forgée par l'expérience
+              {t.about.title}
             </h2>
             <div className="space-y-5">
               <p className="text-muted-foreground leading-relaxed">
-                Forts d'une expertise politique et entrepreneuriale, nous proposons aux dirigeants
-                engagés en France et en Afrique une offre d'accompagnement stratégique et
-                opérationnel, ponctuel et/ou récurrent.
+                {t.about.p1}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Cet accompagnement repose sur une expérience de plus de <strong className="text-foreground">15 ans</strong> dans le monde politique et
-                auprès de décideurs publics et privés de premier plan. Il s'appuie sur des réseaux
-                construits et animés sur cette période, et repose sur une vision ambitieuse, des valeurs
-                d'ouverture et une ambition partagée.
+                {t.about.p2} <strong className="text-foreground">15 {t.about.years}</strong> {t.about.p2b}
               </p>
               <div className="grid grid-cols-2 gap-8 pt-6">
                 <motion.div
@@ -71,7 +68,7 @@ const About = () => {
                   transition={{ duration: 0.2 }}
                 >
                   <p className="text-4xl font-display font-bold text-foreground">15+</p>
-                  <p className="text-sm text-muted-foreground mt-1">Années d'expérience</p>
+                  <p className="text-sm text-muted-foreground mt-1">{t.about.stat1}</p>
                 </motion.div>
                 <motion.div
                   className="border-t border-foreground pt-4"
@@ -79,7 +76,7 @@ const About = () => {
                   transition={{ duration: 0.2 }}
                 >
                   <p className="text-4xl font-display font-bold text-foreground">2</p>
-                  <p className="text-sm text-muted-foreground mt-1">Continents</p>
+                  <p className="text-sm text-muted-foreground mt-1">{t.about.stat2}</p>
                 </motion.div>
               </div>
             </div>

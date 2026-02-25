@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FOUNDER_IMAGE =
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1772015692/Ali_Soumar%C3%A9_ocgppv.jpg";
 
 const Founder = () => {
+  const { t } = useLanguage();
   return (
     <section className="py-16 md:py-24 bg-muted">
       <div className="container mx-auto px-6 max-w-5xl">
@@ -20,19 +22,13 @@ const Founder = () => {
               Ali Soumaré
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              À l&apos;origine de MEMOUKKE AS CONSEIL, un parcours mêlant engagement
-              politique, conseil stratégique et accompagnement d&apos;acteurs publics
-              et privés, en France comme sur le continent africain.
+              {t.founder.intro1}
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Le fondateur met au service des dirigeants une expérience de terrain,
-              une compréhension fine des enjeux institutionnels et une approche
-              résolument opérationnelle, tournée vers les résultats.
+              {t.founder.intro2}
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Cette vision s&apos;incarne dans une exigence d&apos;excellence, de
-              confidentialité et de loyauté, au service de trajectoires ambitieuses
-              et durables.
+              {t.founder.intro3}
             </p>
           </div>
 
@@ -44,7 +40,7 @@ const Founder = () => {
             >
               <motion.img
                 src={FOUNDER_IMAGE}
-                alt="Portrait du fondateur de MEMOUKKE AS CONSEIL"
+                alt={t.founder.alt}
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.06 }}
                 transition={{ duration: 0.4 }}
@@ -60,12 +56,10 @@ const Founder = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-3">
-                Vision
+                {t.founder.visionLabel}
               </p>
               <p className="text-sm text-foreground leading-relaxed">
-                Faire de MEMOUKKE AS CONSEIL un partenaire stratégique de référence
-                pour les dirigeants qui souhaitent conjuguer influence, impact et
-                responsabilité.
+                {t.founder.visionText}
               </p>
             </motion.div>
             <div className="grid grid-cols-2 gap-6">
@@ -74,7 +68,7 @@ const Founder = () => {
                   15+
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  années d&apos;expérience cumulée
+                  {t.founder.stat1}
                 </p>
               </div>
               <div className="border-t border-foreground pt-4">
@@ -82,7 +76,7 @@ const Founder = () => {
                   France & Afrique
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  ancrage des missions et réseaux
+                  {t.founder.stat2}
                 </p>
               </div>
             </div>

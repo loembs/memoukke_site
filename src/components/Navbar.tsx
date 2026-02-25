@@ -1,14 +1,26 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const navItems = [
+  { key: "about" as const, href: "about" },
+  { key: "services" as const, href: "services" },
+  { key: "contact" as const, href: "contact" },
+] as const;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { locale, setLocale, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const linkClass = scrolled
+    ? "text-muted-foreground hover:text-foreground"
+    : "text-background/70 hover:text-background";
 
   return (
     <motion.nav
@@ -27,18 +39,39 @@ const Navbar = () => {
             className={`h-16 md:h-28 w-auto object-contain object-left transition-all duration-300 ${!scrolled ? "brightness-0 invert" : ""}`}
           />
         </a>
-        <div className="hidden md:flex items-center gap-8">
-          {["À propos", "Services", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item === "À propos" ? "about" : item === "Services" ? "services" : "contact"}`}
-              className={`text-xs tracking-widest uppercase transition-colors ${
-                scrolled ? "text-muted-foreground hover:text-foreground" : "text-background/70 hover:text-background"
-              }`}
+        <div className="flex items-center gap-4 md:gap-8">
+          <div className="flex items-center border border-current/30 rounded-sm px-2 py-1 md:border-0 md:px-0 md:py-0 md:bg-transparent">
+            <button
+              type="button"
+              onClick={() => setLocale("fr")}
+              className={`text-xs tracking-widest uppercase transition-colors ${linkClass} ${locale === "fr" ? "font-semibold opacity-100" : "opacity-60"}`}
+              aria-pressed={locale === "fr"}
+              aria-label="Français"
             >
-              {item}
-            </a>
-          ))}
+              FR
+            </button>
+            <span className="mx-1.5 md:mx-2 opacity-50">/</span>
+            <button
+              type="button"
+              onClick={() => setLocale("en")}
+              className={`text-xs tracking-widest uppercase transition-colors ${linkClass} ${locale === "en" ? "font-semibold opacity-100" : "opacity-60"}`}
+              aria-pressed={locale === "en"}
+              aria-label="English"
+            >
+              EN
+            </button>
+          </div>
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map(({ key, href }) => (
+              <a
+                key={key}
+                href={`#${href}`}
+                className={`text-xs tracking-widest uppercase transition-colors ${linkClass}`}
+              >
+                {t.nav[key]}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </motion.nav>

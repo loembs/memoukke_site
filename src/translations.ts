@@ -1,0 +1,151 @@
+export type Locale = "fr" | "en";
+
+export const translations = {
+  fr: {
+    nav: {
+      about: "À propos",
+      services: "Services",
+      contact: "Contact",
+    },
+    hero: {
+      tagline: "Conseil en Communication & Affaires Publiques",
+      subtitle: "Accompagnement stratégique et opérationnel pour dirigeants engagés en France et en Afrique",
+      ctaServices: "Nos Services",
+      ctaContact: "Nous Contacter",
+    },
+    about: {
+      title: "Une expertise forgée par l'expérience",
+      alt: "Équipe de consultants en réunion stratégique",
+      p1: "Forts d'une expertise politique et entrepreneuriale, nous proposons aux dirigeants engagés en France et en Afrique une offre d'accompagnement stratégique et opérationnel, ponctuel et/ou récurrent.",
+      p2: "Cet accompagnement repose sur une expérience de plus de",
+      years: "ans",
+      p2b: "dans le monde politique et auprès de décideurs publics et privés de premier plan. Il s'appuie sur des réseaux construits et animés sur cette période, et repose sur une vision ambitieuse, des valeurs d'ouverture et une ambition partagée.",
+      stat1: "Années d'expérience",
+      stat2: "Continents",
+    },
+    founder: {
+      intro1: "À l'origine de MEMOUKKE AS CONSEIL, un parcours mêlant engagement politique, conseil stratégique et accompagnement d'acteurs publics et privés, en France comme sur le continent africain.",
+      intro2: "Le fondateur met au service des dirigeants une expérience de terrain, une compréhension fine des enjeux institutionnels et une approche résolument opérationnelle, tournée vers les résultats.",
+      intro3: "Cette vision s'incarne dans une exigence d'excellence, de confidentialité et de loyauté, au service de trajectoires ambitieuses et durables.",
+      visionLabel: "Vision",
+      visionText: "Faire de MEMOUKKE AS CONSEIL un partenaire stratégique de référence pour les dirigeants qui souhaitent conjuguer influence, impact et responsabilité.",
+      stat1: "années d'expérience cumulée",
+      stat2: "ancrage des missions et réseaux",
+      alt: "Portrait du fondateur de MEMOUKKE AS CONSEIL",
+    },
+    services: {
+      title: "Nos domaines d'intervention",
+      subtitle: "Un écosystème d'experts mobilisable en fonction de vos besoins et objectifs",
+      items: [
+        { title: "Stratégie politique", description: "Conseil stratégique pour les dirigeants politiques, campagnes et positionnement." },
+        { title: "Affaires publiques", description: "Relations institutionnelles, lobbying et dialogue avec les décideurs publics." },
+        { title: "Communication", description: "Stratégies de communication sur-mesure, gestion d'image et relations médias." },
+        { title: "Conseil économique", description: "Accompagnement des projets entrepreneuriaux et développement économique." },
+        { title: "Gestion de crise", description: "Anticipation, gestion et sortie de crise avec réactivité et confidentialité." },
+        { title: "Philanthropie", description: "Structuration et accompagnement de projets philanthropiques à fort impact." },
+      ],
+    },
+    values: {
+      title: "Nos valeurs",
+      items: [
+        { title: "Confidentialité", description: "Garantir à chaque instant les meilleures conditions de discrétion et de confiance." },
+        { title: "Agilité", description: "Des stratégies sur-mesure adaptées à chaque contexte et chaque ambition." },
+        { title: "Excellence", description: "Une capacité de projection opérationnelle à plusieurs dimensions pour une efficacité maximale." },
+      ],
+    },
+    partners: {
+      title: "Notre réseau de partenaires",
+      subtitle: "Un écosystème de collaborateurs experts, présents dans plusieurs pays africains, mobilisable en fonction de vos besoins.",
+      footer: "Composé de partenaires de confiance, cet écosystème offre une grande agilité dans la conception de stratégies sur-mesure.",
+      categories: ["Communication", "Politique", "Économie", "Finances", "Éducation", "Gestion de crise"],
+      partnerNamesByIndex: [
+        ["Partenaire communication 1", "Partenaire communication 2", "Partenaire communication 3"],
+        ["Partenaire politique 1", "Partenaire politique 2", "Partenaire politique 3"],
+        ["Partenaire économie 1", "Partenaire économie 2", "Partenaire économie 3"],
+        ["Partenaire finances 1", "Partenaire finances 2", "Partenaire finances 3"],
+        ["Partenaire éducation 1", "Partenaire éducation 2", "Partenaire éducation 3"],
+        ["Partenaire gestion de crise 1", "Partenaire gestion de crise 2", "Partenaire gestion de crise 3"],
+      ],
+    },
+    footer: {
+      title: "Prenons contact",
+      subtitle: "Discutons de vos ambitions et de la manière dont nous pouvons vous accompagner.",
+      location: "Paris, France — Afrique",
+      copyright: "Tous droits réservés.",
+    },
+  },
+  en: {
+    nav: {
+      about: "About",
+      services: "Services",
+      contact: "Contact",
+    },
+    hero: {
+      tagline: "Communication & Public Affairs Consulting",
+      subtitle: "Strategic and operational support for committed leaders in France and Africa",
+      ctaServices: "Our Services",
+      ctaContact: "Contact Us",
+    },
+    about: {
+      title: "Expertise forged through experience",
+      alt: "Consulting team in strategic meeting",
+      p1: "With strong political and entrepreneurial expertise, we offer committed leaders in France and Africa strategic and operational support, on a one-off and/or ongoing basis.",
+      p2: "This support is built on over",
+      years: "years",
+      p2b: "of experience in the political world and with top-tier public and private decision-makers. It draws on networks built and nurtured over this period, and is driven by an ambitious vision, open values and shared ambition.",
+      stat1: "Years of experience",
+      stat2: "Continents",
+    },
+    founder: {
+      intro1: "At the origin of MEMOUKKE AS CONSEIL, a career combining political commitment, strategic consulting and support for public and private actors, in France and across the African continent.",
+      intro2: "The founder brings to leaders hands-on experience, a deep understanding of institutional issues and a resolutely operational approach focused on results.",
+      intro3: "This vision is embodied in a commitment to excellence, confidentiality and loyalty, in the service of ambitious and sustainable trajectories.",
+      visionLabel: "Vision",
+      visionText: "To make MEMOUKKE AS CONSEIL a leading strategic partner for leaders who want to combine influence, impact and responsibility.",
+      stat1: "years of cumulative experience",
+      stat2: "footprint for missions and networks",
+      alt: "Portrait of the founder of MEMOUKKE AS CONSEIL",
+    },
+    services: {
+      title: "Our areas of expertise",
+      subtitle: "An ecosystem of experts that can be mobilised according to your needs and objectives",
+      items: [
+        { title: "Political strategy", description: "Strategic consulting for political leaders, campaigns and positioning." },
+        { title: "Public affairs", description: "Institutional relations, lobbying and dialogue with public decision-makers." },
+        { title: "Communication", description: "Tailored communication strategies, image management and media relations." },
+        { title: "Economic consulting", description: "Support for entrepreneurial projects and economic development." },
+        { title: "Crisis management", description: "Anticipation, management and exit from crisis with responsiveness and confidentiality." },
+        { title: "Philanthropy", description: "Structuring and support for high-impact philanthropic projects." },
+      ],
+    },
+    values: {
+      title: "Our values",
+      items: [
+        { title: "Confidentiality", description: "Ensuring the best conditions for discretion and trust at all times." },
+        { title: "Agility", description: "Tailored strategies adapted to each context and each ambition." },
+        { title: "Excellence", description: "Operational projection capability across multiple dimensions for maximum effectiveness." },
+      ],
+    },
+    partners: {
+      title: "Our partner network",
+      subtitle: "An ecosystem of expert collaborators, present in several African countries, that can be mobilised according to your needs.",
+      footer: "Made up of trusted partners, this ecosystem offers great agility in designing tailor-made strategies.",
+      categories: ["Communication", "Politics", "Economy", "Finance", "Education", "Crisis management"],
+      partnerNamesByIndex: [
+        ["Communication partner 1", "Communication partner 2", "Communication partner 3"],
+        ["Politics partner 1", "Politics partner 2", "Politics partner 3"],
+        ["Economy partner 1", "Economy partner 2", "Economy partner 3"],
+        ["Finance partner 1", "Finance partner 2", "Finance partner 3"],
+        ["Education partner 1", "Education partner 2", "Education partner 3"],
+        ["Crisis management partner 1", "Crisis management partner 2", "Crisis management partner 3"],
+      ],
+    },
+    footer: {
+      title: "Get in touch",
+      subtitle: "Let's discuss your ambitions and how we can support you.",
+      location: "Paris, France — Africa",
+      copyright: "All rights reserved.",
+    },
+  },
+} as const;
+

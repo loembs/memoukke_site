@@ -1,43 +1,18 @@
 import { motion } from "framer-motion";
 import { Shield, Users, Globe, Lightbulb, Lock, Target } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CORNER_IMAGE =
  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
 
-const services = [
-  {
-    icon: Target,
-    title: "Stratégie politique",
-    description: "Conseil stratégique pour les dirigeants politiques, campagnes et positionnement.",
-  },
-  {
-    icon: Users,
-    title: "Affaires publiques",
-    description: "Relations institutionnelles, lobbying et dialogue avec les décideurs publics.",
-  },
-  {
-    icon: Globe,
-    title: "Communication",
-    description: "Stratégies de communication sur-mesure, gestion d'image et relations médias.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Conseil économique",
-    description: "Accompagnement des projets entrepreneuriaux et développement économique.",
-  },
-  {
-    icon: Shield,
-    title: "Gestion de crise",
-    description: "Anticipation, gestion et sortie de crise avec réactivité et confidentialité.",
-  },
-  {
-    icon: Lock,
-    title: "Philanthropie",
-    description: "Structuration et accompagnement de projets philanthropiques à fort impact.",
-  },
-];
+const serviceIcons = [Target, Users, Globe, Lightbulb, Shield, Lock];
 
 const Services = () => {
+  const { t } = useLanguage();
+  const services = t.services.items.map((item, index) => ({
+    ...item,
+    icon: serviceIcons[index],
+  }));
   return (
     <section id="services" className="relative py-24 md:py-32 bg-muted overflow-hidden">
       {/* Coins décoratifs 
@@ -71,10 +46,10 @@ const Services = () => {
         >
           <div className="h-px w-12 bg-foreground mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Nos domaines d'intervention
+            {t.services.title}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Un écosystème d'experts mobilisable en fonction de vos besoins et objectifs
+            {t.services.subtitle}
           </p>
         </motion.div>
 
