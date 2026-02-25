@@ -151,8 +151,16 @@ const Partners = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                onMouseEnter={() => setActiveCategory(category.name)}
-                onMouseLeave={() => setActiveCategory(null)}
+                onMouseEnter={() => {
+                  if (window.matchMedia("(hover: hover)").matches) {
+                    setActiveCategory(category.name);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (window.matchMedia("(hover: hover)").matches) {
+                    setActiveCategory(null);
+                  }
+                }}
                 onClick={() =>
                   setActiveCategory((prev) =>
                     prev === category.name ? null : category.name
