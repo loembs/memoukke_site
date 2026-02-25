@@ -38,7 +38,7 @@ const Hero = () => {
           ME<span className="bg-[linear-gradient(to_right,white_50%,black_50%)] bg-clip-text text-transparent">M</span>OUKKE
           <br />
           <span className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[0.15em]">
-            AS CONSEIL
+            CONSEIL AFRIQUE
           </span>
         </motion.h1>
 
