@@ -158,7 +158,7 @@ const Partners = () => {
                     prev === category.name ? null : category.name
                   )
                 }
-                className={`border p-8 text-center transition-all duration-300 cursor-pointer group ${
+                className={`border p-4 md:p-8 text-center transition-all duration-300 cursor-pointer group overflow-hidden min-w-0 ${
                   isActive
                     ? "bg-background border-background/40"
                     : isDimmed
@@ -167,7 +167,7 @@ const Partners = () => {
                 }`}
               >
                 <p
-                  className={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 ${
+                  className={`text-sm font-medium tracking-normal md:tracking-widest uppercase transition-colors duration-300 break-words overflow-hidden min-w-0 ${
                     isActive
                       ? "text-foreground"
                       : isDimmed
