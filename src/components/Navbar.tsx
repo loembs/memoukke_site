@@ -24,7 +24,7 @@ const Navbar = () => {
           <img
             src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1771944109/logo_memoukke_noir-removebg-preview_mpnw91.png"
             alt="MEMOUKKE AS CONSEIL"
-            className={`h-10 md:h-28 w-auto object-contain object-left transition-all duration-300 ${!scrolled ? "brightness-0 invert" : ""}`}
+            className={`h-16 md:h-28 w-auto object-contain object-left transition-all duration-300 ${!scrolled ? "brightness-0 invert" : ""}`}
           />
         </a>
         <div className="hidden md:flex items-center gap-8">

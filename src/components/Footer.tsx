@@ -74,7 +74,7 @@ const Footer = () => {
             <img
               src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1771944109/logo_memoukke_noir-removebg-preview_mpnw91.png"
               alt="MEMOUKKE AS CONSEIL"
-              className="h-12 md:h-20 w-auto object-contain"
+              className="h-17 md:h-20 w-auto object-contain"
             />
           </motion.a>
           <p className="text-xs text-muted-foreground tracking-wide">
