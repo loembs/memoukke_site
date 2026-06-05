@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const FOUNDER_IMAGE =
-  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1772015692/Ali_Soumar%C3%A9_ocgppv.jpg";
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1780687670/8d4a6b20-5bb2-4eff-a49d-ae67c15c0378_kjzoik.jpg";
 
 const Founder = () => {
   const { t } = useLanguage();

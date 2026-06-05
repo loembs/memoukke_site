@@ -48,13 +48,13 @@ const Footer = () => {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-16">
           <motion.a
-            href="mailto:contact@memoukke-conseil.com"
+            href="mailto:contact@memoukkeconseilafrique.com"
             className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
             whileHover={{ x: 4 }}
             transition={{ duration: 0.2 }}
           >
             <Mail className="w-5 h-5" strokeWidth={1.5} />
-            <span className="text-sm">contact@memoukke-conseil.com</span>
+            <span className="text-sm">contact@memoukkeconseilafrique.com</span>
           </motion.a>
           <motion.div
             className="flex items-center gap-3 text-muted-foreground"
@@ -64,6 +64,18 @@ const Footer = () => {
             <MapPin className="w-5 h-5" strokeWidth={1.5} />
             <span className="text-sm">{t.footer.location}</span>
           </motion.div>
+        </div>
+
+        <div className="border-t border-border pt-12 mb-12">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center text-sm leading-relaxed text-muted-foreground italic max-w-2xl mx-auto"
+          >
+            {t.footer.commitment}
+          </motion.p>
         </div>
 
         <div className="border-t border-border pt-8 flex flex-col items-center gap-4 text-center">

@@ -15,12 +15,13 @@ const Partners = () => {
 
   const categories = t.partners.categories;
   const partnerNamesByIndex = t.partners.partnerNamesByIndex;
+  const partnerLogos = (t.partners as any).partnerLogos || [];
 
   const partnerCategories = categories.map((name, index) => ({
     name,
-    partners: partnerNamesByIndex[index].map((partnerName) => ({
+    partners: partnerNamesByIndex[index].map((partnerName, partnerIndex) => ({
       name: partnerName,
-      image: PARTNER_IMAGE,
+      logo: partnerLogos[index]?.[partnerIndex] || "",
     })),
   }));
 
@@ -141,10 +142,18 @@ const Partners = () => {
                     key={partner.name}
                     className="flex flex-col items-center gap-3"
                   >
-                    <div className="w-20 h-20 rounded-full bg-background flex items-center justify-center shadow-md">
-                      <span className="text-xs font-semibold text-foreground text-center px-2">
-                        {partner.name[0]}
-                      </span>
+                    <div className="w-20 h-20 rounded-full bg-background flex items-center justify-center shadow-md overflow-hidden">
+                      {partner.logo ? (
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          className="w-full h-full object-contain p-2"
+                        />
+                      ) : (
+                        <span className="text-xs font-semibold text-foreground text-center px-2">
+                          {partner.name[0]}
+                        </span>
+                      )}
                     </div>
                     <p className="text-xs text-background/80 text-center">
                       {partner.name}

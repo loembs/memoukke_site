@@ -44,7 +44,7 @@ const Values = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           {values.map((value, index) => (
             <motion.div
               key={value.title}
@@ -52,16 +52,13 @@ const Values = () => {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8, scale: 1.02 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="text-center p-6 rounded-sm border border-transparent hover:border-border/50 bg-transparent hover:bg-muted/30 transition-colors cursor-default"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="text-left p-6 rounded-sm border border-transparent hover:border-border/50 bg-transparent hover:bg-muted/30 transition-colors cursor-default"
             >
-              <p className="text-5xl font-display font-bold text-foreground/15 mb-4">
-                0{index + 1}
-              </p>
-              <h3 className="text-xl font-display font-semibold text-foreground mb-3">
+              <h3 className="text-sm font-display font-semibold text-foreground mb-2">
                 {value.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 {value.description}
               </p>
             </motion.div>

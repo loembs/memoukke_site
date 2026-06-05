@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ABOUT_IMAGE =
-  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1772016380/IMG_2808_vl1y2s.jpg";
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1780688508/IMG_3732_maaakb.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -59,25 +59,15 @@ const About = () => {
                 {t.about.p1}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                {t.about.p2} <strong className="text-foreground">15 {t.about.years}</strong> {t.about.p2b}
+                {t.about.p2}
               </p>
-              <div className="grid grid-cols-2 gap-8 pt-6">
-                <motion.div
-                  className="border-t border-foreground pt-4"
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <p className="text-4xl font-display font-bold text-foreground">15+</p>
-                  <p className="text-sm text-muted-foreground mt-1">{t.about.stat1}</p>
-                </motion.div>
-                <motion.div
-                  className="border-t border-foreground pt-4"
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <p className="text-4xl font-display font-bold text-foreground">2</p>
-                  <p className="text-sm text-muted-foreground mt-1">{t.about.stat2}</p>
-                </motion.div>
+              <p className="text-muted-foreground leading-relaxed">
+                {t.about.p2b}
+              </p>
+              <div className="border-t border-foreground pt-6 mt-6">
+                <p className="text-sm italic text-foreground">
+                  {t.about.stat1}
+                </p>
               </div>
             </div>
           </motion.div>
