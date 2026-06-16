@@ -1,40 +1,50 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const CORNER_IMAGE =
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
 
-const PARTNER_IMAGE =
-  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
+const PARTNER_LOGOS = [
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1773754281/andalblacklog_xd0cms.jpg",
+  "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/Logo-SHERPA-2025_00001-e1767651938752_b15bm2.png",
+  "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/WhatsApp_Image_2026-06-04_at_16.37.13_dlwys2.jpg",
+  "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/5redlogo_mrn3ru.jpg",
+];
 
 const Partners = () => {
   const { t } = useLanguage();
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [canHover, setCanHover] = useState(true);
-
-  const categories = t.partners.categories;
-  const partnerNamesByIndex = t.partners.partnerNamesByIndex;
-  const partnerLogos = (t.partners as any).partnerLogos || [];
-
-  const partnerCategories = categories.map((name, index) => ({
-    name,
-    partners: partnerNamesByIndex[index].map((partnerName, partnerIndex) => ({
-      name: partnerName,
-      logo: partnerLogos[index]?.[partnerIndex] || "",
-    })),
-  }));
+  const [api, setApi] = useState<any>(null);
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const mq = window.matchMedia("(hover: hover)");
-    setCanHover(mq.matches);
-    const handler = () => setCanHover(mq.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
+    if (!api) {
+      return;
+    }
 
-  const currentCategory =
-    activeIndex !== null ? partnerCategories[activeIndex] : null;
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
     <section className="relative py-24 md:py-32 bg-foreground text-background overflow-hidden">
@@ -77,93 +87,63 @@ const Partners = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {partnerCategories.map((category, index) => {
-            const isActive = activeIndex === index;
-            const isDimmed = activeIndex !== null && activeIndex !== index;
-
-            return (
-              <motion.div
-                key={`${category.name}-${index}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                onMouseEnter={() => {
-                  if (window.matchMedia("(hover: hover)").matches) {
-                    setActiveIndex(index);
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (window.matchMedia("(hover: hover)").matches) {
-                    setActiveIndex(null);
-                  }
-                }}
-                onClick={() =>
-                  setActiveIndex((prev) => (prev === index ? null : index))
-                }
-                className={`border p-4 md:p-8 text-center transition-all duration-300 cursor-pointer group overflow-hidden min-w-0 ${
-                  isActive
-                    ? "bg-background border-background/40"
-                    : isDimmed && canHover
-                    ? "opacity-0 pointer-events-none"
-                    : "border-background/15 hover:bg-background hover:border-background/30"
-                }`}
-              >
-                <p
-                  className={`text-sm font-medium tracking-normal md:tracking-widest uppercase transition-colors duration-300 break-words overflow-hidden min-w-0 ${
-                    isActive
-                      ? "text-foreground"
-                      : isDimmed
-                      ? "text-background/40"
-                      : "text-background/80 group-hover:text-foreground"
-                  }`}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-2xl mx-auto"
+        >
+          <Carousel
+            setApi={setApi}
+            className="w-full"
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {PARTNER_LOGOS.map((logo, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
                 >
-                  {category.name}
-                </p>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        <div className="mt-10 min-h-[140px]">
-          <AnimatePresence mode="wait">
-            {currentCategory && (
-              <motion.div
-                key={`${currentCategory.name}-${activeIndex}`}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-2 sm:grid-cols-3 gap-6 items-center justify-items-center"
-              >
-                {currentCategory.partners.map((partner) => (
-                  <div
-                    key={partner.name}
-                    className="flex flex-col items-center gap-3"
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="flex flex-col items-center gap-3 p-2"
                   >
-                    <div className="w-20 h-20 rounded-full bg-background flex items-center justify-center shadow-md overflow-hidden">
-                      {partner.logo ? (
-                        <img
-                          src={partner.logo}
-                          alt={partner.name}
-                          className="w-full h-full object-contain p-2"
-                        />
-                      ) : (
-                        <span className="text-xs font-semibold text-foreground text-center px-2">
-                          {partner.name[0]}
-                        </span>
-                      )}
+                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-background flex items-center justify-center shadow-lg overflow-hidden ring-4 ring-background/10 hover:ring-background/30 transition-all duration-300">
+                      <img
+                        src={logo}
+                        alt={`Partner ${index + 1}`}
+                        className="w-full h-full object-contain p-3"
+                      />
                     </div>
-                    <p className="text-xs text-background/80 text-center">
-                      {partner.name}
-                    </p>
-                  </div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          {/* Carousel indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {PARTNER_LOGOS.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? "w-8 bg-background"
+                    : "w-2 bg-background/30 hover:bg-background/50"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}

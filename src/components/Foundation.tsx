@@ -73,7 +73,7 @@ const Founder = () => {
               </div>
               <div className="border-t border-foreground pt-4">
                 <p className="text-3xl font-display font-bold text-foreground">
-                  France & Afrique
+                  Afrique & Europe 
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
                   {t.founder.stat2}
