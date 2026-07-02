@@ -11,10 +11,12 @@ const CORNER_IMAGE =
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1771948776/IMG_2804_eu9z6s-removebg-preview_zuxmha.png";
 
 const PARTNER_LOGOS = [
-  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1773754281/andalblacklog_xd0cms.jpg",
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1783006556/sangomar_ljtzxq.jpg",
   "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/Logo-SHERPA-2025_00001-e1767651938752_b15bm2.png",
-  "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/WhatsApp_Image_2026-06-04_at_16.37.13_dlwys2.jpg",
   "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/5redlogo_mrn3ru.jpg",
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1773754281/andalblacklog_xd0cms.jpg",
+  "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/WhatsApp_Image_2026-06-04_at_16.37.13_dlwys2.jpg",
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1783005967/3_6_lsqcxb.png",
 ];
 
 const Partners = () => {

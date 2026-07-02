@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CORNER_IMAGE =
@@ -55,6 +55,15 @@ const Footer = () => {
           >
             <Mail className="w-5 h-5" strokeWidth={1.5} />
             <span className="text-sm">contact@memoukkeconseilafrique.com</span>
+          </motion.a>
+          <motion.a
+            href="tel:+221789663333"
+            className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Phone className="w-5 h-5" strokeWidth={1.5} />
+            <span className="text-sm">+221 78 966 33 33</span>
           </motion.a>
           <motion.div
             className="flex items-center gap-3 text-muted-foreground"

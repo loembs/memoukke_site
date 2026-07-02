@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ABOUT_IMAGE =
-  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1780688508/IMG_3732_maaakb.jpg";
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1783008845/header.memoukke_eqrogc.jpg";
 
 const About = () => {
   const { t } = useLanguage();
