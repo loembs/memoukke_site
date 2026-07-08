@@ -55,17 +55,17 @@ const About = () => {
               {t.about.title}
             </h2>
             <div className="space-y-5">
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-justify">
                 {t.about.p1}
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-justify">
                 {t.about.p2}
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-justify">
                 {t.about.p2b}
               </p>
               <div className="border-t border-foreground pt-6 mt-6">
-                <p className="text-sm italic text-foreground">
+                <p className="text-sm italic text-foreground text-justify">
                   {t.about.stat1}
                 </p>
               </div>

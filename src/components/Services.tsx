@@ -70,7 +70,7 @@ const Services = () => {
               <h3 className="text-lg font-display font-semibold text-foreground mb-3">
                 {service.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed text-justify">
                 {service.description}
               </p>
             </motion.div>

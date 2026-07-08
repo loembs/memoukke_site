@@ -46,7 +46,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-base md:text-lg text-background/70 max-w-xl mx-auto mb-12 leading-relaxed"
+          className="text-base md:text-lg text-background/70 max-w-xl mx-auto mb-12 leading-relaxed text-justify"
         >
           {t.hero.subtitle}
         </motion.p>

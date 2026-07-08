@@ -41,7 +41,7 @@ const Footer = () => {
           <h2 className="text-3xl font-display font-bold text-foreground mb-4">
             {t.footer.title}
           </h2>
-          <p className="text-muted-foreground max-w-md mx-auto">
+          <p className="text-muted-foreground max-w-md mx-auto text-justify">
             {t.footer.subtitle}
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center text-sm leading-relaxed text-muted-foreground italic max-w-2xl mx-auto"
+            className="text-center text-sm leading-relaxed text-muted-foreground italic max-w-2xl mx-auto text-justify"
           >
             {t.footer.commitment}
           </motion.p>
@@ -96,12 +96,12 @@ const Footer = () => {
           >
             <img
               src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1771944109/logo_memoukke_noir-removebg-preview_mpnw91.png"
-              alt="MEMOUKKE AS CONSEIL"
+              alt="Memoukke conseil Afrique"
               className="h-17 md:h-20 w-auto object-contain"
             />
           </motion.a>
           <p className="text-xs text-muted-foreground tracking-wide">
-            © {new Date().getFullYear()} MEMOUKKE AS CONSEIL. {t.footer.copyright}
+            © {new Date().getFullYear()} Memoukke conseil Afrique. {t.footer.copyright}
           </p>
         </div>
       </div>

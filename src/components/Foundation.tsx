@@ -21,13 +21,13 @@ const Founder = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
               Ali Soumaré
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
+            <p className="text-muted-foreground leading-relaxed mb-4 text-justify">
               {t.founder.intro1}
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
+            <p className="text-muted-foreground leading-relaxed mb-4 text-justify">
               {t.founder.intro2}
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-justify">
               {t.founder.intro3}
             </p>
           </div>
@@ -58,7 +58,7 @@ const Founder = () => {
               <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-3">
                 {t.founder.visionLabel}
               </p>
-              <p className="text-sm text-foreground leading-relaxed">
+              <p className="text-sm text-foreground leading-relaxed text-justify">
                 {t.founder.visionText}
               </p>
             </motion.div>

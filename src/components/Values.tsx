@@ -58,7 +58,7 @@ const Values = () => {
               <h3 className="text-sm font-display font-semibold text-foreground mb-2">
                 {value.title}
               </h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed text-justify">
                 {value.description}
               </p>
             </motion.div>

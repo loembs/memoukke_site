@@ -17,6 +17,7 @@ const PARTNER_LOGOS = [
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1773754281/andalblacklog_xd0cms.jpg",
   "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/WhatsApp_Image_2026-06-04_at_16.37.13_dlwys2.jpg",
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1783005967/3_6_lsqcxb.png",
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1783529435/WhatsApp_Image_2026-07-07_at_18.17.52_r4dkr2.jpg",
 ];
 
 const Partners = () => {
@@ -152,7 +153,7 @@ const Partners = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center text-background/50 text-sm mt-12 max-w-lg mx-auto leading-relaxed"
+          className="text-center text-background/50 text-sm mt-12 max-w-lg mx-auto leading-relaxed text-justify"
         >
           {t.partners.footer}
         </motion.p>

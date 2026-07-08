@@ -35,7 +35,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center shrink-0 min-w-0 max-w-[55%] md:max-w-none">
           <img
             src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1771944109/logo_memoukke_noir-removebg-preview_mpnw91.png"
-            alt="MEMOUKKE AS CONSEIL"
+            alt="Memoukke conseil Afrique"
             className={`h-16 md:h-28 w-auto object-contain object-left transition-all duration-300 ${!scrolled ? "brightness-0 invert" : ""}`}
           />
         </a>
