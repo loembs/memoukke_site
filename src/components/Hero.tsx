@@ -35,7 +35,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight text-background tracking-wide"
         >
-          ME<span className="bg-[linear-gradient(to_right,white_50%,black_50%)] bg-clip-text text-transparent">M</span>OUKKE
+          MEMOUKKE
           <br />
           <span className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[0.15em]">
             CONSEIL AFRIQUE
