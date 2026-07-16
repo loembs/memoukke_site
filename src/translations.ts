@@ -26,7 +26,7 @@ export const translations = {
     founder: {
       intro1: "Entrepreneur et conseiller stratégique, Ali Soumaré accompagne depuis plusieurs années des dirigeants, investisseurs, institutions et porteurs de projets dans leurs enjeux de développement, de structuration et de croissance.",
       intro2: "Son parcours lui a permis d'évoluer au sein d'environnements publics, politiques, institutionnels et entrepreneuriaux, développant ainsi une compréhension fine des mécanismes de décision et des dynamiques de transformation.",
-      intro3: "Aujourd'hui, il intervient principalement sur des projets nécessitant une forte capacité de coordination, de mobilisation des parties prenantes et de mise en œuvre opérationnelle. Sa démarche repose sur une conviction forte : les meilleures stratégies sont celles qui produisent des résultats concrets.",
+      intro3: "Aujourd'hui, il intervient principalement sur des projets nécessitant une forte capacité de coordination, de mobilisation des parties prenantes et de mise en œuvre opérationnelle. Sa démarche repose sur une conviction forte : les meilleures stratégies sont celles qui produisent des résultats concrets.",
       visionLabel: "Vision",
       visionText: "Faire avancer les projets. Créer les bonnes connexions. Mobiliser les bons partenaires. Transformer les opportunités en résultats.",
       stat1: "années d'expérience",
@@ -111,7 +111,7 @@ export const translations = {
     founder: {
       intro1: "Entrepreneur and strategic advisor, Ali Soumaré has been supporting leaders, investors, institutions and project leaders for several years on their development, structuring and growth challenges.",
       intro2: "His career has allowed him to work in public, political, institutional and entrepreneurial environments, developing a fine understanding of decision-making mechanisms and transformation dynamics.",
-      intro3: "Today, he primarily works on projects requiring strong coordination capacity, stakeholder mobilization and operational implementation. His approach is based on a strong conviction: the best strategies are those that produce concrete results.",
+      intro3: "Today, he primarily works on projects requiring strong coordination capacity, stakeholder mobilization and operational implementation. His approach is based on a strong conviction : the best strategies are those that produce concrete results.",
       visionLabel: "Vision",
       visionText: "Advance projects. Create the right connections. Mobilize the right partners. Transform opportunities into results.",
       stat1: "years of experience",

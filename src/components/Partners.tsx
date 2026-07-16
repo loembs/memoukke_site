@@ -18,6 +18,7 @@ const PARTNER_LOGOS = [
   "https://res.cloudinary.com/dprbhsvxl/image/upload/v1781632012/WhatsApp_Image_2026-06-04_at_16.37.13_dlwys2.jpg",
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1783005967/3_6_lsqcxb.png",
   "https://res.cloudinary.com/dlna2kuo1/image/upload/v1783529435/WhatsApp_Image_2026-07-07_at_18.17.52_r4dkr2.jpg",
+  "https://res.cloudinary.com/dlna2kuo1/image/upload/v1784162141/saergrouplogo_tl12kl.jpg",
 ];
 
 const Partners = () => {
@@ -118,7 +119,7 @@ const Partners = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex flex-col items-center gap-3 p-2"
                   >
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-background flex items-center justify-center shadow-lg overflow-hidden ring-4 ring-background/10 hover:ring-background/30 transition-all duration-300">
+                    <div className={`w-24 h-24 md:w-32 md:h-32 bg-background flex items-center justify-center shadow-lg overflow-hidden ring-4 ring-background/10 hover:ring-background/30 transition-all duration-300 ${index === PARTNER_LOGOS.length - 1 ? "rounded-sm" : "rounded-full"}`}>
                       <img
                         src={logo}
                         alt={`Partner ${index + 1}`}
